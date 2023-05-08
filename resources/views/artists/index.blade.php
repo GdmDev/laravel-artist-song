@@ -19,23 +19,24 @@
     </form>
 
     <div>
-        <table>
+        <table class="w-100">
             <?php
                 if (!isset($current)) {
                     $current = $artists[0];
                 }
             ?>
-
             @forelse ($current->songs as $song)
                 <tr>
-                    <td>{{ $song->title }}</td>
-                    <td>({{ date('d-m-Y', strtotime($song->publication)) }})</td>
-                    <td>
+                    <td class>{{ $song->title }}</td>
+                    <td class>({{ date('d-m-Y', strtotime($song->publication)) }})</td>
+                    <td class>
+                        <div class="text-right">
                         <a href="{{ route('songs.edit', $song->id) }}" class="btn btn-sm btn-primary">Modifica</a>
                         <form class="d-inline" method="post" action="{{ route('songs.delete', $song->id) }}">
                             @csrf
-                            <input type="hidden" name="_method" value="delete">
-                            <input type="submit" role="submit" class="btn btn-sm btn-danger" value="Elimina">
+                                <input class="btn d-inline" type="hidden" name="_method" value="delete">
+                                <input type="submit" role="submit" class="btn btn-sm btn-danger d-inline" value="Elimina">
+                            </div>
                         </form>
                     </td>
                 </tr>

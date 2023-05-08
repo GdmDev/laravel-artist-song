@@ -29,7 +29,7 @@
             </select>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center mt-5">
         <button type="submit" class="btn btn-success btn-sm" name="salva">Salva</button>
     </div>
 </form>
